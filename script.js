@@ -29,3 +29,27 @@ const quotes = [
         author: " Tyne Daly"
     }
 ];
+
+let vecesClic = 0; // el usuario ha hecho 0 veces clic en el botón al inicio de la app
+
+// 1. Identificar los elementos del DOM en los que tenemos asociar eventos. Recuperar el elemento del DOM y utilizar el método addEventListener
+    clic = document.querySelector("#button-frase")
+    clic.addEventListener("click", function() {
+        vecesClic++;
+        let newQuote = getRandomQuote()
+        document.querySelector(".quote-text").textContent =  newQuote.quote
+        document.querySelector(".quote--author").textContent = newQuote.author
+    })
+// 2. Identificar si existe algún tipo de estado en nuestra aplicación y crear las variables globales para almacenar esta información
+
+// 3. Cada vez que se capture un evento, considerar si hay que actualizar la interfaz del usuario con nueva info o modificar la existente
+
+// Obtener una posición del array al azar
+function getRandomQuote() {
+
+    // calcular un número al azar entre todas las posiciones disponables del array. Nuestro array es "quotes", no "colors"
+
+    let quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    return quote;
+}
